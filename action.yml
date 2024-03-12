@@ -31,18 +31,14 @@ runs:
         GITHUB_ACTION_PATH: ${{ github.action_path }}
 
     - name: list the files and dir
-      run: |
-        ls -l "$GITHUB_ACTION_PATH"
-        pwd
+      run: ls -l "$GITHUB_ACTION_PATH"
       shell: bash
       
     - name: Set Executable permission to script
-      run: 
-        pwd
-        chmod +x goodbye.sh
+      run: chmod +x "$GITHUB_ACTION_PATH"/goodbye.sh
       shell: bash 
 
     - name: Run goodbye.sh
-      run: goodbye.sh
+      run: "$GITHUB_ACTION_PATH"/goodbye.sh
       shell: bash
 
