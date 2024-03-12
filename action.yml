@@ -30,18 +30,15 @@ runs:
       env:
         GITHUB_ACTION_PATH: ${{ github.action_path }}
 
-    - name: list the files and dir
-      run: ls -l "$GITHUB_ACTION_PATH"
+    - name: switch to action dir
+      run: cd "$GITHUB_ACTION_PATH"
       shell: bash
       
     - name: Set Executable permission to script
-      run: chmod +x "$GITHUB_ACTION_PATH"/goodbye.sh
+      run: chmod +x goodbye.sh
       shell: bash 
 
     - name: Run goodbye.sh
-      run: 
-        cd "$GITHUB_ACTION_PATH"
-        pwd
-        goodbye.sh
+      run: goodbye.sh
       shell: bash
 
