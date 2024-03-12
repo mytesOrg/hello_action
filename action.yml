@@ -35,10 +35,12 @@ runs:
       shell: bash
       
     - name: Set Executable permission to script
-      run: chmod +x "$GITHUB_ACTION_PATH"/goodbye.sh
+      working-directory: "$GITHUB_ACTION_PATH"
+      run: chmod +x goodbye.sh
       shell: bash 
 
     - name: Run goodbye.sh
-      run: "$GITHUB_ACTION_PATH"/goodbye.sh
+      working-directory: "$GITHUB_ACTION_PATH"
+      run: goodbye.sh
       shell: bash
 
