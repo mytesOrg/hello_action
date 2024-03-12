@@ -31,8 +31,14 @@ runs:
         GITHUB_ACTION_PATH: ${{ github.action_path }}
 
     - name: Set Executable permission to script
+      run: |
+        ls -l
+        pwd
+      shell: bash
+      
+    - name: Set Executable permission to script
       run: chmod +x goodbye.sh
-      shell: bash      
+      shell: bash 
 
     - name: Run goodbye.sh
       run: goodbye.sh
