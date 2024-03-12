@@ -1,1 +1,1 @@
-This project is to greet the user and generate random number.
+this project is to greet the user and generate random number.
