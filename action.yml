@@ -31,14 +31,17 @@ runs:
         GITHUB_ACTION_PATH: ${{ github.action_path }}
 
     - name: switch to action dir
-      run: cd "$GITHUB_ACTION_PATH"
+      run: pwd
+      working-directory: ${{env.GITHUB_ACTION_PATH}}
       shell: bash
       
     - name: Set Executable permission to script
       run: chmod +x goodbye.sh
+      working-directory: ${{env.GITHUB_ACTION_PATH}}
       shell: bash 
 
     - name: Run goodbye.sh
       run: goodbye.sh
+      working-directory: ${{env.GITHUB_ACTION_PATH}}
       shell: bash
 
