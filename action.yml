@@ -1,5 +1,6 @@
-name: 'Hello World'
+name: 'Hello_World_OneTwo'
 description: 'Greet someone'
+author: 'nrd'
 inputs:
   who-to-greet:  # id of input
     description: 'Who to greet'
