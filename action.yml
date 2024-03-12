@@ -39,7 +39,9 @@ runs:
       shell: bash 
 
     - name: Run goodbye.sh
-      working-directory: "$GITHUB_ACTION_PATH"
-      run: goodbye.sh
+      run: 
+        cd "$GITHUB_ACTION_PATH"
+        pwd
+        goodbye.sh
       shell: bash
 
