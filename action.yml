@@ -22,19 +22,21 @@ runs:
     - name: Random Number Generator
       id: random-number-generator
       run: echo "random-number=$(echo $RANDOM)" >> $GITHUB_OUTPUT
-      shell: bash
-
-    - name: Set GitHub Path
-      run: echo "$GITHUB_WORKSPACE" >> $GITHUB_PATH
-      shell: bash
-      env:
-        GITHUB_ACTION_PATH: ${{ github.action_path }}
-
-    - name: Set Executable permission to script
-      run: chmod +x goodbye.sh
       shell: bash 
 
-    - name: Run goodbye.sh
-      run: goodbye.sh
+    - name: Set Executable permission to script
+      env:
+        GITHUB_ACTION_PATH: ${{ github.action_path }}
+      run: |
+        cd $GITHUB_ACTION_PATH
+        chmod +x goodbye.sh
+      shell: bash 
+
+    - name: Run Shell script
+      env:
+        GITHUB_ACTION_PATH: ${{ github.action_path }}
+      run: |
+        cd $GITHUB_ACTION_PATH
+        goodbye.sh
       shell: bash
 
